@@ -11,8 +11,13 @@ public class FeedController {
 
     List<Story> stories = new ArrayList<>();
 
-    private FeedService feedService = new FeedService();
-    private PublicationService publicationService = new PublicationService();
+    private FeedService feedService;
+    private PublicationService publicationService;
+
+    public FeedController(FeedService feedService, PublicationService publicationService) {
+        this.feedService = feedService;
+        this.publicationService = publicationService;
+    }
 
     public void post(String string) {
         Story st = new Story(string);
